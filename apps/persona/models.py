@@ -1,4 +1,7 @@
+
 from django.db import models
+from django.db.models.aggregates import Max
+from django.forms.widgets import NumberInput
 
 
 class Persona(models.Model):
@@ -28,3 +31,16 @@ class EstadoSalud(models.Model):
     posee_desnutricion = models.BooleanField(null=True)
     observaciones = models.TextField(blank=True)
 
+class CuentaBancaria(models.Model):
+    banco_emisor_opc=(
+        ('Banco Nacion', 'Banco Nacion'),
+        ('Banco Rio', 'Banco Rio'),
+    )
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    numero_cuenta= models.IntegerField(unique=True)
+    cbu=models.DecimalField(max_digits=22,decimal_places=0,unique=True)
+    alias=models.CharField(max_length=25,unique=True,null=True, blank=True)
+    banco_emisor=models.CharField(max_length=20,choices=banco_emisor_opc)
+    
+    class Meta:
+        ordering = ('persona',)

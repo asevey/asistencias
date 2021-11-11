@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% block titulo %}Creación de Programa{% endblock %}
+{% block contenido %}
+<h2>Lista de Personas</h2>
+<table>
+    <tr>
+        <th>Dni</th>
+        <th>nombre completo</th>
+        <th>numero cuenta</th>
+        <th>cbu</th>
+        <th>alias</th>
+        <th>banco emisor</th>
+    </tr>
+    
+        <tr>
+            <td>{{ persona.dni }}</a></td>
+            <th>{{persona.nombre_completo}}</th>
+            <td> {{cuenta.numero_cuenta}} </td>
+            <td>{{ cuenta.cbu }}</td>
+            <td>{{ cuenta.alias}}</td>
+            <td>{{cuenta.banco_emisor}}</td>
+        </tr>
+    
+</table>
+{% endblock %}

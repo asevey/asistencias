@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% block titulo %}Creación de Programa{% endblock %}
+{% block contenido %}
+<h2>Lista de Personas</h2>
+<table>
+    <tr>
+        <th>Dni</th>
+        <th>Nombre</th>
+        <th>Fecha de nacimiento</th>
+        <th>sexo</th>
+        <th>domicilio</th>
+    </tr>
+    {% for persona in personas %}
+        <tr>
+            <td>{{ persona.dni }}</a></td>
+            <td> {{persona.nombre_completo}} </td>
+            <td>{{ persona.fecha_nacimiento }}</td>
+            <td>{{ persona.sexo}}</td>
+            <td>{{persona.domicilio}}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
